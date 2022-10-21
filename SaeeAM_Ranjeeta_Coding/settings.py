@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^y1ba!%n+d&=)*q-ii2a&ykh7r0*ss)qx0a&nx98&0z(1cj)k-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['saeeamcoding.herokuapp.com']
 
 
 # Application definition
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 INSTALLED_APPS = [
     'Coding.apps.CodingConfig',
     'User.apps.UserConfig',

@@ -1,0 +1,145 @@
+{% extends "blog/base.html" %}
+{% block main %}
+
+
+
+<div class="container">
+
+    <div class="p-5 mb-4 bg-light shadow rounded-3">
+      
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    
+          <div class="col-md-6">
+            <form action="" method="get">
+              <div class="container d-flex justify-content-center">
+            
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend"> <span class="input-group-text google"><svg class="bi me-2" height="50" width="50">
+
+                      <ellipse cx="25" cy="25" rx="25" ry="25" fill="black" />
+                      <text fill="#ffffff" font-size="40" font-family="Verdana" x="12" y="40">S</text>
+                    </svg></span> 
+                  </div>
+                  {% csrf_token %}
+                    <input name="search" type="text" class="form-control">
+                    <div class="input-group-append">  <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button></div>
+                  
+                  </div>
+              
+            </div>
+          </form>
+          </div>
+          
+         
+          <div class="col-md-6">
+           
+              <div id="Searchdata" class="card-header">
+                {% for searchlist in params %}
+               <a href="/post/{{searchlist.id}}"> <p>{{searchlist.title}}</p></a>
+                {% endfor %}
+              </div>
+            
+          </div>
+         
+       
+    
+          
+        </div>
+    </div>
+</div>
+ 
+   
+    <hr>
+    <div class="container">
+    <div class="p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Services</h1>
+      </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      {% for catelist in category %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 bg-light shadow-sm">
+          <div class="card-header py-3">
+            <a href="/{{catelist.name}}" style="text-decoration: none;">
+            <h4 class="my-0 fw-normal">{{catelist.name}}</h4></a>
+          </div>
+          <div class="card-body">
+            <p>{{catelist.Detail}} </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+     
+       
+     
+      
+   
+
+      
+    </div>
+    </div>
+
+    <hr>
+
+
+<div class="container">
+    <div id="about" class="container-fluid bg-1 text-center shadow rounded-3">
+      <div class="container-fluid py-5 col-md-4">
+      
+         <h3 class="fw-bold">This is Powered By SaeeAM/Ranjeeta</h3>
+         <p class="fs-4">
+         </p>
+       </div>
+     
+
+      <div  class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    
+        <div class="col-md-6">
+          
+        </div>
+        
+       
+        <div class="col-md-6">
+         
+
+          
+        </div>
+       
+      
+
+      </div>
+     
+
+    </div>
+  </div>
+<hr>
+
+    
+
+  <!-- Contact Section End -->
+<!-- Messenger Chat plugin Code --> <div id="fb-root"></div> <script> window.fbAsyncInit = function() { FB.init({ xfbml: true, version: 'v10.0' }); }; (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk')); </script> <!-- Your Chat plugin code --> <div class="fb-customerchat" attribution="biz_inbox" page_id="102900325287983"> </div>
+    <!-- Footer Section Start -->
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi me-2" height="40" width="135">
+
+            <ellipse cx="100" cy="20" rx="25" ry="25" fill="black
+                    " />
+            <text fill="#ffffff" font-size="40" font-family="Verdana" x="85" y="35">S</text>
+          </svg>
+        </a>
+        <span>SaeeAM&copy; 2021 Company, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="https://saeeam.business.site/?m=true" target="_blanks"><i class='fa fa-google-plus' style='font-size:24px;color:black'></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class='fa fa-facebook' style='font-size:24px;color:black'></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class='fa fa-instagram' style='font-size:24px;color:black'></i></a></li>
+      </ul>
+    </footer>
+  </div>
+
+{% endblock main %}

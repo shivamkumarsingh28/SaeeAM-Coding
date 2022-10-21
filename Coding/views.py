@@ -56,8 +56,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class CategoryCreateView(LoginRequiredMixin, CreateView):
     model = Category
     fields = '__all__'
+    success_url = '/'
     def form_valid(self, form):
-        form.instance.author = self.render.user.is_superuser
+        form.instance.author = self.request.user.is_superuser
         return super().form_valid(form)
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
